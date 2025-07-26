@@ -1,0 +1,8 @@
+.env
+node_modules/
+*.log
+*.bak
+ascii_output_*.png
+discord-token.txt
+bfg-*.jar*
+.DS_Store
