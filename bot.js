@@ -67,11 +67,11 @@ async function imageToAscii(imageBuffer) {
 
 const asciiCommand = new SlashCommandBuilder()
   .setName('ascii')
-  .setDescription('Convert an uploaded .png image to ASCII art PNG')
+  .setDescription('Convert an uploaded .png or .jpg image to ASCII art PNG')
   .addAttachmentOption((option) =>
     option
       .setName('image')
-      .setDescription('Upload a .png image to convert')
+      .setDescription('Upload a .png or .jpg image to convert')
       .setRequired(true)
   )
 
@@ -91,8 +91,8 @@ client.on('interactionCreate', async (interaction) => {
     if (!interaction.isCommand() || interaction.commandName !== 'ascii') return
 
     const attachment = interaction.options.getAttachment('image')
-    if (!attachment || !attachment.contentType.startsWith('image/png')) {
-      await interaction.reply({ content: 'Please upload a valid .png image.', ephemeral: true })
+    if (!attachment || (!attachment.contentType.startsWith('image/png') && !attachment.contentType.startsWith('image/jpeg'))) {
+      await interaction.reply({ content: 'Please upload a valid .png or .jpg image.', ephemeral: true })
       return
     }
 
