@@ -1,22 +1,23 @@
 # imageTooASCII 
 
-A Discord bot that converts PNG images to ASCII art and returns them as PNG files.
+A Discord bot that converts PNG and JPEG images to ASCII art and returns them as PNG files.
 
 ## Features
 
-- Converts uploaded .png images to ASCII art
+- Converts uploaded .png and .jpg images to ASCII art
 - Returns ASCII art as a styled PNG image
 - Uses slash commands and attachment for easy interaction
+- Optimized in-memory processing for fast performance
 
 ## Setup
 
 1. Install dependencies: `npm install`
 2. Create a `.env` file with your Discord bot token: DISCORD_TOKEN=your_bot_token_here
-3. Run the bot: `npm start`  or 'node bot.js'
+3. Run the bot: `npm start` or `node bot.js`
 
 ## Usage
 
-Use the `/ascii` command in Discord chat and attach a .png image to convert it to ASCII art.
+Use the `/ascii` command in Discord chat and attach a .png or .jpg image to convert it to ASCII art.
 
 ## Dependencies
 
