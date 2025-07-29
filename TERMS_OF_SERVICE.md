@@ -10,18 +10,20 @@ By using the imageTooASCII Discord bot, you agree to these Terms of Service.
 ## Description of Service
 
 imageTooASCII is a Discord bot that:
-- Converts PNG images to ASCII art
+- Converts PNG and JPEG images to ASCII art
 - Returns ASCII art as styled PNG images
 - Operates through Discord slash commands (`/ascii`)
 
 ## Acceptable Use
 
 ### You May:
-- Upload PNG images for ASCII conversion
+
+- Upload PNG and JPEG images for ASCII conversion
 - Use the bot in Discord servers where you have permission
 - Use generated ASCII art for personal or commercial purposes
 
 ### You May NOT:
+
 - Upload illegal, harmful, or inappropriate content
 - Use the bot to spam or harass others
 - Attempt to exploit or damage the bot's functionality
@@ -50,11 +52,13 @@ imageTooASCII is a Discord bot that:
 ## Limitations and Disclaimers
 
 ### Service Limitations:
-- Only processes PNG image files
+
+- Only processes PNG and JPEG image files
 - File size and processing time may be limited
 - ASCII quality depends on original image characteristics
 
 ### Disclaimers:
+
 - **No Warranty:** Service provided "as-is" without warranties
 - **No Liability:** Not responsible for any damages from bot usage
 - **Accuracy:** No guarantee of ASCII conversion quality or accuracy
@@ -62,7 +66,7 @@ imageTooASCII is a Discord bot that:
 
 ## Data and Privacy
 
-- Images are processed temporarily and deleted immediately
+- Images are processed temporarily in memory only
 - See our Privacy Policy for detailed data handling information
 - We do not permanently store your uploaded images
 
