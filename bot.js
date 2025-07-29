@@ -12,8 +12,6 @@ try {
   process.exit(1)
 }
 const { createCanvas } = require('canvas')
-const fs = require('fs').promises
-const path = require('path')
 
 const client = new Client({
   intents: [
@@ -57,12 +55,10 @@ async function imageToAscii(imageBuffer) {
       ctx.fillText(line, 0, y * charHeight)
     })
 
-    const outputPath = path.join(__dirname, `ascii_output_${Date.now()}.png`)
     const buffer = canvas.toBuffer('image/png')
     console.log('Buffer format:', buffer.toString('hex', 0, 4))
-    await fs.writeFile(outputPath, buffer)
 
-    return { outputPath }
+    return { buffer }
   } catch (error) {
     console.error('ImageToAscii Error:', error)
     return { error: `Error processing image: ${error.message}` }
@@ -105,17 +101,15 @@ client.on('interactionCreate', async (interaction) => {
     const response = await fetch(attachment.url)
     const arrayBuffer = await response.arrayBuffer()
     const imageBuffer = Buffer.from(arrayBuffer)
-    const { outputPath, error } = await imageToAscii(imageBuffer)
+    const { buffer, error } = await imageToAscii(imageBuffer)
     if (error) {
       await interaction.editReply({ content: error })
       return
     }
 
     await interaction.editReply({
-      files: [outputPath],
+      files: [{ attachment: buffer, name: 'ascii_art.png' }],
     })
-
-    await fs.unlink(outputPath).catch((err) => console.error('File Delete Error:', err))
   } catch (error) {
     console.error('Interaction Error:', error)
     if (interaction.deferred) {
